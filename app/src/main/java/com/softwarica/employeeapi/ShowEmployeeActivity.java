@@ -8,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.softwarica.employeeapi.API.EmployeeAPI;
-import com.softwarica.employeeapi.Adapter.EmployeeAdapter;
 import com.softwarica.employeeapi.Models.Employee;
 import com.softwarica.employeeapi.url.URL;
 
