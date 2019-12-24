@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvID"
+        android:id="@+id/tvEmpID"
         android:layout_width="123dp"
         android:layout_height="22dp"
         android:layout_marginTop="4dp"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toEndOf="@+id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/tvID" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmpID" />
 
     <TextView
         android:id="@+id/tvAge"

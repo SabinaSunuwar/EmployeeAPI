@@ -1,6 +1,7 @@
 package com.softwarica.employeeapi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.softwarica.employeeapi.API.EmployeeAPI;
+import com.softwarica.employeeapi.Adapter.EmployeeAdapter;
 import com.softwarica.employeeapi.Models.Employee;
 import com.softwarica.employeeapi.url.URL;
 
@@ -21,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowEmployeeActivity extends AppCompatActivity {
 
-    TextView tvShowEmployee;
+    private TextView tvShowEmployee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +32,19 @@ public class ShowEmployeeActivity extends AppCompatActivity {
 
         tvShowEmployee = findViewById(R.id.tvShowEmployee);
 
-        Retrofit retrofit = new Retrofit.Builder()
+//        Retrofit retrofit = new Retrofit.Builder()
+//
+//                .baseUrl(URL.base_url)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
 
-                .baseUrl(URL.base_url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
+        EmployeeAPI employeeAPI = URL.CreateInstance().create(EmployeeAPI.class);
         Call<List<Employee>> listCall = employeeAPI.getAllEmployees();
 
+
+
         //Asynchronous call
+
 
         listCall.enqueue(new Callback<List<Employee>>() {
             @Override
@@ -60,6 +65,7 @@ public class ShowEmployeeActivity extends AppCompatActivity {
                     data += "Age is :" + emp.getEmployee_age() + "\n";
                     data += "Profilr is :" + emp.getProfile_image() + "\n";
                     tvShowEmployee.append(data);
+
 
                 }
 
